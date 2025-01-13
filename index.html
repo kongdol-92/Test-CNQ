@@ -6,17 +6,18 @@
 <style>
   body {
     margin: 0;
-    overflow: hidden;
-    background: #f5f5f5;
+    overflow: auto; /* 페이지 스크롤 활성화 */
+    background: #FFFFFF;
     font-family: sans-serif;
   }
 
   .slider-container {
     position: relative;
-    width: 100vw; 
+    width: 100%; 
     height: 200px; 
-    overflow: hidden;
+    overflow: hidden; /* 캐러셀 내 스크롤 숨김 */
     white-space: nowrap; 
+    margin: 20px 0; /* 상하 여백 추가 */
   }
 
   .slide-item {
@@ -35,46 +36,105 @@
 </head>
 <body>
 
+<!-- 캐러셀 컨테이너 -->
 <div class="slider-container" id="slider">
-  <!-- 1~7 -->
-   <div class="slide-item">
+  <div class="slide-item">
     <img 
-      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-01-09%20084755.png" 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244.png" 
       alt="슬라이드1"
     />
   </div>
-  <div class="slide-item">2</div>
-  <div class="slide-item">3</div>
-  <div class="slide-item">4</div>
-  <div class="slide-item">5</div>
-  <div class="slide-item">6</div>
-  <div class="slide-item">7</div>
-
-  <!-- 다시 1~7 반복 -->
-   <div class="slide-item">
+  <div class="slide-item">
     <img 
-      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-01-09%20084755.png" 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_01.png" 
+      alt="슬라이드2"
+    />
+  </div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_02.png" 
+      alt="슬라이드3"
+    />
+  </div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_03.png" 
+      alt="슬라이드4"
+    />
+  </div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_04.png" 
+      alt="슬라이드5"
+    />
+  </div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_05.png" 
+      alt="슬라이드6"
+    />
+  </div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_06.png" 
+      alt="슬라이드7"
+    />
+  </div>
+ <div class="slider-container" id="slider">
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244.png" 
       alt="슬라이드1"
     />
   </div>
-  <div class="slide-item">2</div>
-  <div class="slide-item">3</div>
-  <div class="slide-item">4</div>
-  <div class="slide-item">5</div>
-  <div class="slide-item">6</div>
-  <div class="slide-item">7</div>
-</div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_01.png" 
+      alt="슬라이드2"
+    />
+  </div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_02.png" 
+      alt="슬라이드3"
+    />
+  </div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_03.png" 
+      alt="슬라이드4"
+    />
+  </div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_04.png" 
+      alt="슬라이드5"
+    />
+  </div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_05.png" 
+      alt="슬라이드6"
+    />
+  </div>
+  <div class="slide-item">
+    <img 
+      src="https://raw.githubusercontent.com/kongdol-92/Test-CNQ/refs/heads/main/KakaoTalk_20250113_162231244_06.png" 
+      alt="슬라이드7"
+    />
+  </div>
 
 <script>
-  let slider = document.getElementById('slider');
-  let speed = 2; 
+  const slider = document.getElementById('slider');
+  let speed = 2; // 캐러셀 이동 속도
   let animationFrame;
 
+  // 캐러셀 자동 스크롤 함수
   function scrollSlider() {
     slider.scrollLeft += speed;
-    
-    // 전체 스크롤 폭의 절반 지점에 도달하면 다시 앞으로 되돌리기
-    if (slider.scrollLeft >= (slider.scrollWidth / 2)) {
+
+    // 스크롤이 끝까지 가면 다시 처음으로 이동
+    if (slider.scrollLeft >= slider.scrollWidth / 2) {
       slider.scrollLeft = 0;
     }
 
@@ -84,12 +144,18 @@
   // 자동 스크롤 시작
   animationFrame = requestAnimationFrame(scrollSlider);
 
-  // 마우스를 올리면 멈추기
+  // 캐러셀 위에서 마우스 휠 동작 제어
+  slider.addEventListener('wheel', (e) => {
+    e.preventDefault(); // 기본 페이지 스크롤 차단
+    slider.scrollLeft += e.deltaY; // 휠 방향에 따라 캐러셀 이동
+  });
+
+  // 마우스를 올리면 자동 스크롤 멈춤
   slider.addEventListener('mouseenter', () => {
     cancelAnimationFrame(animationFrame);
   });
 
-  // 마우스를 치우면 다시 시작
+  // 마우스를 치우면 자동 스크롤 재개
   slider.addEventListener('mouseleave', () => {
     animationFrame = requestAnimationFrame(scrollSlider);
   });
